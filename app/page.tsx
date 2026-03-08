@@ -126,7 +126,7 @@ export default function HomePage() {
       <section className="px-6 py-20">
         <div className="mx-auto max-w-2xl rounded-2xl border bg-card p-12 text-center shadow-sm">
           <h2 className="text-3xl font-bold tracking-tight">
-            Ready to get started?
+            Are you ready to get started?
           </h2>
           <p className="mt-4 text-muted-foreground">
             Join today and start shortening links, tracking clicks, and sharing
