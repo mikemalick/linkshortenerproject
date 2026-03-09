@@ -1,4 +1,4 @@
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignUpButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -80,11 +80,6 @@ export default function HomePage() {
               Get Started Free
             </Button>
           </SignUpButton>
-          <SignInButton mode="modal">
-            <Button size="lg" variant="outline" className="px-8">
-              Sign In
-            </Button>
-          </SignInButton>
         </div>
       </section>
 
