@@ -1,3 +1,7 @@
+---
+description: This file describes the UI component rules for the project. Read this before implementing or modifying any UI components in the project.
+---
+
 # UI Standards — shadcn/ui
 
 ## Rules

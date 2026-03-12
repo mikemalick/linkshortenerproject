@@ -1,3 +1,7 @@
+---
+description: This file describes the authentication rules for the project. Read this before implementing or modifying any authentication-related features or handling user sessions.
+---
+
 # Authentication — Clerk
 
 All authentication in this application is handled exclusively by **Clerk** (`@clerk/nextjs`). No other auth libraries, custom session management, or manual JWT handling should ever be used.

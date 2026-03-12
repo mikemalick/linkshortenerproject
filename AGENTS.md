@@ -1,10 +1,6 @@
 # Agent Instructions — Link Shortener Project
 
 This file is the entry point for LLM coding agents working in this repository.
-All detailed standards live in the `/docs` directory.
-
-> [!CAUTION]
-> **MANDATORY — NO EXCEPTIONS:** You MUST read the relevant `/docs` instruction file(s) in full **BEFORE writing or generating ANY code** in that domain. Do not rely on assumptions, prior knowledge, or memory of these files — always fetch and read them fresh with a file-reading tool. Generating code without first reading the applicable doc is a critical error.
 
 ## Project Overview
 
@@ -26,16 +22,6 @@ A full-stack URL shortener built with **Next.js App Router**, **Clerk** authenti
 | ORM | Drizzle ORM |
 | Database | Neon Serverless PostgreSQL |
 | Validation | (zod — add as needed) |
-
-## Docs / Standards Reference
-
-> [!IMPORTANT]
-> Before writing any code, identify every domain your task touches and **read each corresponding doc file in full** using a file-reading tool. There are no exceptions — this applies to every code generation task, no matter how small.
-
-| Domain | File | Read before… |
-|---|---|---|
-| Authentication (Clerk) | [`/docs/auth.md`](/docs/auth.md) | Any auth, session, middleware, or protected route code |
-| UI Components (shadcn/ui) | [`/docs/ui.md`](/docs/ui.md) | Any component, layout, or styling code |
 
 ## Key Conventions (Summary)
 
