@@ -1,20 +1,20 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import { NextResponse } from 'next/server';
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
-const isProtectedRoute = createRouteMatcher(['/dashboard(.*)']);
-const isPublicHomeRoute = createRouteMatcher(['/']);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
+const isPublicHomeRoute = createRouteMatcher(["/"]);
 
 export default clerkMiddleware(async (auth, req) => {
   const { userId } = await auth();
 
   // Redirect authenticated users away from homepage to dashboard
   if (userId && isPublicHomeRoute(req)) {
-    return NextResponse.redirect(new URL('/dashboard', req.url));
+    return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 
   // Protect dashboard — redirect unauthenticated users to sign-in
   if (!userId && isProtectedRoute(req)) {
-    return NextResponse.redirect(new URL('/', req.url));
+    return NextResponse.redirect(new URL("/", req.url));
   }
 });
 

@@ -1,5 +1,4 @@
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
-// import { SignUpButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -9,14 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Link2,
-  BarChart3,
-  Shield,
-  Zap,
-  Globe,
-  MousePointerClick,
-} from "lucide-react";
+import { Link2, Shield, Zap, Globe, MousePointerClick } from "lucide-react";
 
 const features = [
   {
@@ -24,12 +16,6 @@ const features = [
     title: "Instant Shortening",
     description:
       "Paste any long URL and get a clean, shareable short link in seconds. No friction, no fuss.",
-  },
-  {
-    icon: BarChart3,
-    title: "Click Analytics",
-    description:
-      "Track every click on your links. See how your audience engages with your content in real time.",
   },
   {
     icon: Shield,
@@ -63,17 +49,15 @@ export default function HomePage() {
       {/* Hero */}
       <section className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-24 text-center">
         <Badge variant="secondary" className="text-sm px-4 py-1">
-          URL Shortener & Analytics
+          URL Shortener
         </Badge>
         <h1 className="max-w-3xl text-5xl font-bold tracking-tight sm:text-6xl">
           Shorten Links.{" "}
-          <span className="text-muted-foreground">Track Clicks.</span>{" "}
-          Share Anywhere.
+          <span className="text-muted-foreground">Share Anywhere.</span>
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground leading-relaxed">
           Transform long, unwieldy URLs into clean, memorable short links.
-          Monitor engagement with built-in analytics and manage everything from
-          one dashboard.
+          Manage everything from one dashboard.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <SignUpButton mode="modal">
@@ -125,8 +109,7 @@ export default function HomePage() {
             Are you ready to get started?
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Join today and start shortening links, tracking clicks, and sharing
-            smarter.
+            Join today and start shortening links and sharing smarter.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <SignUpButton mode="modal">

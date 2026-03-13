@@ -1,11 +1,11 @@
-import { auth } from '@clerk/nextjs/server';
-import { getLinksByUserId } from '@/data/links';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Link2 } from 'lucide-react';
-import { CreateLinkDialog } from '@/app/dashboard/create-link-dialog';
-import { EditLinkDialog } from '@/app/dashboard/edit-link-dialog';
-import { DeleteLinkDialog } from '@/app/dashboard/delete-link-dialog';
+import { auth } from "@clerk/nextjs/server";
+import { getLinksByUserId } from "@/data/links";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Link2 } from "lucide-react";
+import { CreateLinkDialog } from "@/app/dashboard/create-link-dialog";
+import { EditLinkDialog } from "@/app/dashboard/edit-link-dialog";
+import { DeleteLinkDialog } from "@/app/dashboard/delete-link-dialog";
 
 export default async function DashboardPage() {
   const { userId } = await auth();
@@ -19,7 +19,9 @@ export default async function DashboardPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">My Links</h1>
         <div className="flex items-center gap-3">
-          <Badge variant="secondary">{links.length} link{links.length !== 1 ? 's' : ''}</Badge>
+          <Badge variant="secondary">
+            {links.length} link{links.length !== 1 ? "s" : ""}
+          </Badge>
           <CreateLinkDialog />
         </div>
       </div>
@@ -44,9 +46,14 @@ export default async function DashboardPage() {
                 </CardHeader>
                 <CardContent className="flex items-center justify-between gap-4">
                   <div className="min-w-0 space-y-1">
-                    <p className="text-sm text-muted-foreground truncate">{link.originalUrl}</p>
+                    <p className="text-sm text-muted-foreground truncate">
+                      {link.originalUrl}
+                    </p>
                     <p className="text-xs text-muted-foreground">
-                      Created {new Date(link.createdAt).toLocaleDateString(undefined, { dateStyle: 'medium' })}
+                      Created{" "}
+                      {new Date(link.createdAt).toLocaleDateString(undefined, {
+                        dateStyle: "medium",
+                      })}
                     </p>
                   </div>
                   <div className="flex items-center gap-1 shrink-0">
@@ -59,7 +66,11 @@ export default async function DashboardPage() {
                     >
                       <ExternalLink className="size-4" />
                     </a>
-                    <EditLinkDialog id={link.id} originalUrl={link.originalUrl} shortCode={link.shortCode} />
+                    <EditLinkDialog
+                      id={link.id}
+                      originalUrl={link.originalUrl}
+                      shortCode={link.shortCode}
+                    />
                     <DeleteLinkDialog id={link.id} shortCode={link.shortCode} />
                   </div>
                 </CardContent>

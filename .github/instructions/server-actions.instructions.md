@@ -15,7 +15,7 @@ description: Rules for implementing data mutations via server actions in this pr
 
 ```ts
 const { userId } = await auth();
-if (!userId) throw new Error('Unauthorized');
+if (!userId) throw new Error("Unauthorized");
 ```
 
 7. **Database access:** Use helper functions from the `/data` directory. Never call Drizzle queries directly inside a server action.
@@ -26,17 +26,17 @@ if (!userId) throw new Error('Unauthorized');
 return { success: true };
 
 // failure
-return { error: 'Something went wrong.' };
+return { error: "Something went wrong." };
 ```
 
 ## Example Structure
 
 ```ts
-'use server';
+"use server";
 
-import { auth } from '@clerk/nextjs/server';
-import { z } from 'zod';
-import { createLink } from '@/data/links';
+import { auth } from "@clerk/nextjs/server";
+import { z } from "zod";
+import { createLink } from "@/data/links";
 
 const schema = z.object({
   originalUrl: z.string().url(),
@@ -44,10 +44,10 @@ const schema = z.object({
 
 export async function createLinkAction(input: { originalUrl: string }) {
   const { userId } = await auth();
-  if (!userId) return { error: 'Unauthorized' };
+  if (!userId) return { error: "Unauthorized" };
 
   const parsed = schema.safeParse(input);
-  if (!parsed.success) return { error: 'Invalid input' };
+  if (!parsed.success) return { error: "Invalid input" };
 
   await createLink({ userId, originalUrl: parsed.data.originalUrl });
   return { success: true };

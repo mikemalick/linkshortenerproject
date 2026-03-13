@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useTransition } from 'react';
-import { useRouter } from 'next/navigation';
-import { Pencil } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { Pencil } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -12,10 +12,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { updateLinkAction } from '@/app/dashboard/actions';
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { updateLinkAction } from "@/app/dashboard/actions";
 
 interface EditLinkDialogProps {
   id: number;
@@ -23,7 +23,11 @@ interface EditLinkDialogProps {
   shortCode: string;
 }
 
-export function EditLinkDialog({ id, originalUrl, shortCode }: EditLinkDialogProps) {
+export function EditLinkDialog({
+  id,
+  originalUrl,
+  shortCode,
+}: EditLinkDialogProps) {
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState(originalUrl);
   const [code, setCode] = useState(shortCode);
@@ -45,10 +49,13 @@ export function EditLinkDialog({ id, originalUrl, shortCode }: EditLinkDialogPro
     setError(null);
 
     startTransition(async () => {
-      const result = await updateLinkAction(id, { originalUrl: url, shortCode: code });
+      const result = await updateLinkAction(id, {
+        originalUrl: url,
+        shortCode: code,
+      });
 
-      if ('error' in result) {
-        setError(result.error ?? 'An unexpected error occurred.');
+      if ("error" in result) {
+        setError(result.error ?? "An unexpected error occurred.");
         return;
       }
 
@@ -101,11 +108,15 @@ export function EditLinkDialog({ id, originalUrl, shortCode }: EditLinkDialogPro
           {error && <p className="text-sm text-destructive">{error}</p>}
 
           <DialogFooter>
-            <Button type="button" variant="outline" onClick={() => handleOpenChange(false)}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => handleOpenChange(false)}
+            >
               Cancel
             </Button>
             <Button type="submit" disabled={isPending}>
-              {isPending ? 'Saving…' : 'Save Changes'}
+              {isPending ? "Saving…" : "Save Changes"}
             </Button>
           </DialogFooter>
         </form>

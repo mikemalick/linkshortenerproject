@@ -26,10 +26,10 @@ description: This file describes the UI component rules for the project. Read th
 
 ## Component Location
 
-| Type | Path |
-|---|---|
-| shadcn/ui primitives | `@/components/ui/` |
-| Composite / page-level components | `@/components/` |
+| Type                              | Path               |
+| --------------------------------- | ------------------ |
+| shadcn/ui primitives              | `@/components/ui/` |
+| Composite / page-level components | `@/components/`    |
 
 ## What NOT to Do
 

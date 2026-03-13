@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useTransition } from 'react';
-import { useRouter } from 'next/navigation';
-import { Plus } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -12,15 +12,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { createLinkAction } from '@/app/dashboard/actions';
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { createLinkAction } from "@/app/dashboard/actions";
 
 export function CreateLinkDialog() {
   const [open, setOpen] = useState(false);
-  const [originalUrl, setOriginalUrl] = useState('');
-  const [shortCode, setShortCode] = useState('');
+  const [originalUrl, setOriginalUrl] = useState("");
+  const [shortCode, setShortCode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
@@ -28,8 +28,8 @@ export function CreateLinkDialog() {
   function handleOpenChange(value: boolean) {
     setOpen(value);
     if (!value) {
-      setOriginalUrl('');
-      setShortCode('');
+      setOriginalUrl("");
+      setShortCode("");
       setError(null);
     }
   }
@@ -41,8 +41,8 @@ export function CreateLinkDialog() {
     startTransition(async () => {
       const result = await createLinkAction({ originalUrl, shortCode });
 
-      if ('error' in result) {
-        setError(result.error ?? 'An unexpected error occurred.');
+      if ("error" in result) {
+        setError(result.error ?? "An unexpected error occurred.");
         return;
       }
 
@@ -84,7 +84,10 @@ export function CreateLinkDialog() {
 
           <div className="space-y-2">
             <Label htmlFor="short-code">
-              Short Code <span className="text-muted-foreground font-normal">(optional)</span>
+              Short Code{" "}
+              <span className="text-muted-foreground font-normal">
+                (optional)
+              </span>
             </Label>
             <Input
               id="short-code"
@@ -111,7 +114,7 @@ export function CreateLinkDialog() {
               Cancel
             </Button>
             <Button type="submit" disabled={isPending || !originalUrl.trim()}>
-              {isPending ? 'Creating…' : 'Create Link'}
+              {isPending ? "Creating…" : "Create Link"}
             </Button>
           </DialogFooter>
         </form>

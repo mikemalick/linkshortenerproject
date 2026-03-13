@@ -17,28 +17,28 @@ All authentication in this application is handled exclusively by **Clerk** (`@cl
 Protect routes and handle redirects in `middleware.ts` at the project root using Clerk's `clerkMiddleware` and `createRouteMatcher`.
 
 ```ts
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import { NextResponse } from 'next/server';
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
-const isProtectedRoute = createRouteMatcher(['/dashboard(.*)']);
-const isPublicHomeRoute = createRouteMatcher(['/']);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
+const isPublicHomeRoute = createRouteMatcher(["/"]);
 
 export default clerkMiddleware(async (auth, req) => {
   const { userId } = await auth();
 
   // Redirect authenticated users away from homepage to dashboard
   if (userId && isPublicHomeRoute(req)) {
-    return NextResponse.redirect(new URL('/dashboard', req.url));
+    return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 
   // Protect dashboard — redirect unauthenticated users to sign-in
   if (!userId && isProtectedRoute(req)) {
-    return NextResponse.redirect(new URL('/', req.url));
+    return NextResponse.redirect(new URL("/", req.url));
   }
 });
 
 export const config = {
-  matcher: ['/((?!_next|.*\\..*).*)'],
+  matcher: ["/((?!_next|.*\\..*).*)"],
 };
 ```
 
@@ -64,16 +64,18 @@ import { SignInButton, SignUpButton } from '@clerk/nextjs';
 ## Accessing the Current User
 
 **Server Components / Route Handlers / Server Actions:**
-```ts
-import { auth, currentUser } from '@clerk/nextjs/server';
 
-const { userId } = await auth();          // lightweight — just the ID
-const user = await currentUser();         // full user object (extra network call)
+```ts
+import { auth, currentUser } from "@clerk/nextjs/server";
+
+const { userId } = await auth(); // lightweight — just the ID
+const user = await currentUser(); // full user object (extra network call)
 ```
 
 **Client Components:**
+
 ```ts
-import { useAuth, useUser } from '@clerk/nextjs';
+import { useAuth, useUser } from "@clerk/nextjs";
 
 const { userId, isSignedIn } = useAuth();
 const { user } = useUser();
@@ -81,7 +83,7 @@ const { user } = useUser();
 
 ## Protected Route Behaviour
 
-| Route | Unauthenticated | Authenticated |
-|---|---|---|
-| `/` | Show homepage | Redirect to `/dashboard` |
-| `/dashboard` | Redirect to `/` | Allow access |
+| Route        | Unauthenticated | Authenticated            |
+| ------------ | --------------- | ------------------------ |
+| `/`          | Show homepage   | Redirect to `/dashboard` |
+| `/dashboard` | Redirect to `/` | Allow access             |

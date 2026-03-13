@@ -1,6 +1,6 @@
-import { db } from '@/db';
-import { links } from '@/db/schema';
-import { and, desc, eq } from 'drizzle-orm';
+import { db } from "@/db";
+import { links } from "@/db/schema";
+import { and, desc, eq } from "drizzle-orm";
 
 export async function getLinksByUserId(userId: string) {
   return db
@@ -10,11 +10,19 @@ export async function getLinksByUserId(userId: string) {
     .orderBy(desc(links.updatedAt));
 }
 
-export async function createLink(data: { userId: string; originalUrl: string; shortCode: string }) {
+export async function createLink(data: {
+  userId: string;
+  originalUrl: string;
+  shortCode: string;
+}) {
   return db.insert(links).values(data);
 }
 
-export async function updateLink(id: number, userId: string, data: { originalUrl: string; shortCode: string }) {
+export async function updateLink(
+  id: number,
+  userId: string,
+  data: { originalUrl: string; shortCode: string },
+) {
   return db
     .update(links)
     .set({ ...data, updatedAt: new Date() })

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useTransition } from 'react';
-import { useRouter } from 'next/navigation';
-import { Trash2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -14,8 +14,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
-import { deleteLinkAction } from '@/app/dashboard/actions';
+} from "@/components/ui/alert-dialog";
+import { deleteLinkAction } from "@/app/dashboard/actions";
 
 interface DeleteLinkDialogProps {
   id: number;
@@ -33,8 +33,8 @@ export function DeleteLinkDialog({ id, shortCode }: DeleteLinkDialogProps) {
     startTransition(async () => {
       const result = await deleteLinkAction(id);
 
-      if ('error' in result) {
-        setError(result.error ?? 'An unexpected error occurred.');
+      if ("error" in result) {
+        setError(result.error ?? "An unexpected error occurred.");
         return;
       }
 
@@ -54,9 +54,9 @@ export function DeleteLinkDialog({ id, shortCode }: DeleteLinkDialogProps) {
         <AlertDialogHeader>
           <AlertDialogTitle>Delete Short Link</AlertDialogTitle>
           <AlertDialogDescription>
-            Are you sure you want to delete{' '}
-            <span className="font-mono font-medium">{shortCode}</span>? This action cannot be
-            undone.
+            Are you sure you want to delete{" "}
+            <span className="font-mono font-medium">{shortCode}</span>? This
+            action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
 
@@ -69,7 +69,7 @@ export function DeleteLinkDialog({ id, shortCode }: DeleteLinkDialogProps) {
             disabled={isPending}
             variant="destructive"
           >
-            {isPending ? 'Deleting…' : 'Delete'}
+            {isPending ? "Deleting…" : "Delete"}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

@@ -5,6 +5,7 @@ This file is the entry point for LLM coding agents working in this repository.
 ## Project Overview
 
 A full-stack URL shortener built with **Next.js App Router**, **Clerk** authentication, **Drizzle ORM**, and a **Neon (PostgreSQL)** database. The UI is built with **shadcn/ui** components and styled with **Tailwind CSS v4**. The application allows users to:
+
 - Create shortened URLs
 - Track link analytics
 - Manage their links with authentication
@@ -12,16 +13,16 @@ A full-stack URL shortener built with **Next.js App Router**, **Clerk** authenti
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript 5 (strict mode) |
-| Styling | Tailwind CSS v4 + shadcn/ui (new-york) |
-| Icons | lucide-react |
-| Authentication | Clerk (`@clerk/nextjs`) |
-| ORM | Drizzle ORM |
-| Database | Neon Serverless PostgreSQL |
-| Validation | (zod — add as needed) |
+| Layer          | Technology                             |
+| -------------- | -------------------------------------- |
+| Framework      | Next.js 16 (App Router)                |
+| Language       | TypeScript 5 (strict mode)             |
+| Styling        | Tailwind CSS v4 + shadcn/ui (new-york) |
+| Icons          | lucide-react                           |
+| Authentication | Clerk (`@clerk/nextjs`)                |
+| ORM            | Drizzle ORM                            |
+| Database       | Neon Serverless PostgreSQL             |
+| Validation     | (zod — add as needed)                  |
 
 ## Key Conventions (Summary)
 

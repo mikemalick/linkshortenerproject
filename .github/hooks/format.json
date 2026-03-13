@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": ".github/hooks/format-on-edit.ps1"
+      }
+    ]
+  }
+}
